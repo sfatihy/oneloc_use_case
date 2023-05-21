@@ -45,11 +45,16 @@ class SplashProvider with ChangeNotifier {
   Future userCheck() async {
     String? response = await _cacheManager.getSC();
 
-    if (response == null || response == 1.toString()) {
+    if (response == null) {
       return false;
     }
     else {
-      return true;
+      if (response == "1") {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
   }
 }
